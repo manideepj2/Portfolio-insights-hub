@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-Portfolio Insights Hub is a cloud-native internal platform designed for Vanguard investment advisors and portfolio analysts to upload, process, analyze, and visualize investor portfolio holdings data.
+Portfolio Insights Hub is a cloud-native internal platform designed for investment advisors and portfolio analysts to upload, process, analyze, and visualize investor portfolio holdings data.
 
 The platform provides scalable portfolio ingestion pipelines, portfolio analytics APIs, GraphQL-based aggregation capabilities, and lightweight UI visualizations for portfolio insights and risk exposure analysis.
 
