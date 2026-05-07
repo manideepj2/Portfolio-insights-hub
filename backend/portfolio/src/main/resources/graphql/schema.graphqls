@@ -1,0 +1,27 @@
+type Holding {
+    investorId: String
+    portfolioId: String
+    instrument: String
+    assetType: String
+    quantity: Float
+    marketValue: Float
+}
+
+type PortfolioSummary {
+    portfolioId: String
+    totalPortfolioValue: Float
+    instrumentCount: Int
+    assetAllocation: [AssetAllocation]
+}
+
+type AssetAllocation {
+    assetType: String
+    percentage: Float
+}
+
+type Query {
+
+    holdings(investorId: String!): [Holding]
+
+    portfolioSummary(portfolioId: String!): PortfolioSummary
+}
