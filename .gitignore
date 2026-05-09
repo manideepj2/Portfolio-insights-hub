@@ -3,3 +3,4 @@
 portfolio-ui/.vscode/extensions.json
 portfolio-ui/.vscode/extensions.json
 /backend/lambda-processor/target
+*.jar
