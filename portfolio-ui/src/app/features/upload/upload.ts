@@ -93,7 +93,7 @@ export class UploadComponent {
             this.isUploading.set(false);
             setTimeout(() => {
               window.location.reload();
-            }, 1500);
+            }, 5000);
           },
 
           error: () => {
