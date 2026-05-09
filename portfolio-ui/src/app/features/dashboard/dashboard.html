@@ -1,0 +1,104 @@
+<div class="dashboard-card mb-4">
+
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <label class="form-label fw-semibold">
+
+        Investor
+
+      </label>
+
+      <select
+        class="form-select"
+        (change)="changeInvestor($event)"
+      >
+
+        @for (
+          investor of investors();
+          track investor
+        ) {
+
+          <option [value]="investor">
+
+            {{ investor }}
+
+          </option>
+        }
+
+      </select>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <label class="form-label fw-semibold">
+
+        Portfolio
+
+      </label>
+
+      <select
+        class="form-select"
+        (change)="changePortfolio($event)"
+      >
+
+        @for (
+          portfolio of portfolios();
+          track portfolio
+        ) {
+
+          <option [value]="portfolio">
+
+            {{ portfolio }}
+
+          </option>
+        }
+
+      </select>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-4 mb-4">
+
+    <app-portfolio-summary></app-portfolio-summary>
+
+  </div>
+
+  <div class="col-lg-8 mb-4">
+
+    <app-upload></app-upload>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-12 mb-4">
+
+    <app-holdings></app-holdings>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-12 mb-4">
+
+    <app-risk-insights 
+    [selectedInvestor]="selectedInvestor" 
+    [selectedPortfolio]="selectedPortfolio">
+  </app-risk-insights>
+
+  </div>
+
+</div>

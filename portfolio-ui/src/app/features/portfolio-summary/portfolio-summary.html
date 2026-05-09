@@ -1,0 +1,71 @@
+@if (summary()) {
+
+  <div class="dashboard-card h-100">
+
+    <h4 class="section-title mb-4">
+      Portfolio Summary
+    </h4>
+
+    <div class="mb-4">
+
+      <h6 class="text-muted">
+        Total Portfolio Value
+      </h6>
+
+      <h2 class="theme-text fw-bold">
+        ${{ summary()?.totalPortfolioValue }}
+      </h2>
+
+    </div>
+
+    <div class="mb-4">
+
+      <h6 class="text-muted">
+        Instruments
+      </h6>
+
+      <h3 class="theme-text fw-bold">
+        {{ summary()?.instrumentCount }}
+      </h3>
+
+    </div>
+
+    <div>
+
+      <h6 class="text-muted mb-3">
+        Asset Allocation
+      </h6>
+
+      @for (
+        allocation of summary()?.assetAllocation;
+        track allocation.assetType
+      ) {
+
+        <div class="mb-2">
+
+          <div class="d-flex justify-content-between">
+
+            <span>{{ allocation.assetType }}</span>
+
+            <span>
+              {{ allocation.percentage.toFixed(2) }}%
+            </span>
+
+          </div>
+
+          <div class="progress">
+
+            <div
+              class="progress-bar theme-bg"
+              [style.width.%]="allocation.percentage"
+            ></div>
+
+          </div>
+
+        </div>
+      }
+
+    </div>
+
+  </div>
+}

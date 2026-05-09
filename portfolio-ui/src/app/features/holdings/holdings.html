@@ -1,0 +1,63 @@
+<div class="dashboard-card">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+
+    <h3 class="section-title m-0">
+      Portfolio Holdings
+    </h3>
+
+    <span class="badge text-bg-danger">
+      Live Portfolio Data
+    </span>
+
+  </div>
+
+  @if (isLoading()) {
+
+  <div class="text-center py-4">
+
+    <div class="spinner-border theme-text"></div>
+
+  </div>
+
+} @else {
+
+  <table class="table table-hover align-middle">
+
+    <thead>
+
+      <tr>
+        <th>Instrument</th>
+        <th>Asset Type</th>
+        <th>Quantity</th>
+        <th>Market Value</th>
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      @for (
+        holding of holdings();
+        track holding.instrument
+      ) {
+
+        <tr>
+
+          <td>{{ holding.instrument }}</td>
+
+          <td>{{ holding.assetType }}</td>
+
+          <td>{{ holding.quantity }}</td>
+
+          <td>${{ holding.marketValue }}</td>
+
+        </tr>
+      }
+
+    </tbody>
+
+  </table>
+}
+
+</div>

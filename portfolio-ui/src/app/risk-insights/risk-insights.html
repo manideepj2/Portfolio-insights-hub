@@ -1,0 +1,62 @@
+@if (riskExposure(); as risk) {
+
+  <div class="dashboard-card h-100">
+
+    <h4 class="section-title mb-4">
+      Risk Insights
+    </h4>
+
+    <div class="mb-4">
+      <h6 class="text-muted mb-3">
+        Asset Allocation
+      </h6>
+
+      <table class="table table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Asset Type</th>
+            <th class="text-end">Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (
+            allocation of risk.assetAllocations;
+            track allocation.assetType
+          ) {
+            <tr>
+              <td>{{ allocation.assetType }}</td>
+              <td class="text-end">{{ allocation.percentage.toFixed(2) }}%</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h6 class="text-muted mb-3">
+        Top Holdings
+      </h6>
+
+      <table class="table table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Instrument</th>
+            <th class="text-end">Market Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (
+            holding of risk.topHoldings;
+            track holding.instrument
+          ) {
+            <tr>
+              <td>{{ holding.instrument }}</td>
+              <td class="text-end">${{ holding.marketValue }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+}

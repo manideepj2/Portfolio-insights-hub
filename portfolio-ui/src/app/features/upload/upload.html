@@ -1,0 +1,76 @@
+<div class="dashboard-card h-100">
+
+  <h4 class="section-title mb-4">
+    Upload Portfolio CSV
+  </h4>
+
+  <div 
+    class="upload-drop-zone" 
+    [class.drag-over]="isDragOver()"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    (click)="triggerFileInput()">
+
+    <div class="upload-content">
+      <i class="bi bi-cloud-upload-fill fs-1 text-primary mb-3"></i>
+      <p class="mb-2">Drag & drop your CSV file here</p>
+      <p class="text-muted small">or click to browse files</p>
+      @if (selectedFile()) {
+        <div class="d-flex align-items-center justify-content-center mt-2">
+          <p class="text-success me-2 mb-0">{{ selectedFile()!.name }}</p>
+          <button class="btn btn-sm btn-outline-danger remove-file-btn" (click)="clearFile()">
+            ×
+          </button>
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <input
+    type="file"
+    #fileInput
+    style="display: none"
+    accept=".csv"
+    (change)="onFileSelected($event)"
+  >
+
+  <div class="text-center mt-3">
+    <button
+      class="btn theme-btn"
+      (click)="uploadFile()"
+      [disabled]="isUploading() || !selectedFile()"
+    >
+
+      @if (isUploading()) {
+
+        Uploading...
+
+      } @else {
+
+        Upload Portfolio
+      }
+
+    </button>
+  </div>
+
+  @if (uploadMessage()) {
+
+    <div class="alert alert-success mt-3">
+
+      {{ uploadMessage() }}
+
+    </div>
+  }
+
+  @if (uploadError()) {
+
+    <div class="alert alert-danger mt-3">
+
+      {{ uploadError() }}
+
+    </div>
+  }
+
+</div>
