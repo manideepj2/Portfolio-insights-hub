@@ -2,5 +2,5 @@
 /portfolio-ui/.vscode
 portfolio-ui/.vscode/extensions.json
 portfolio-ui/.vscode/extensions.json
-/backend/lambda-processor/target
+**/target/
 *.jar
