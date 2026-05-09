@@ -18,10 +18,21 @@ type AssetAllocation {
     assetType: String
     percentage: Float
 }
+type TopHolding {
+    instrument: String
+    marketValue: Float
+}
+
+type RiskExposureResponse {
+    assetAllocations: [AssetAllocation]
+    topHoldings: [TopHolding]
+}
+
+extend type Query {
+    riskExposure(investorId: String!,portfolioId: String!): RiskExposureResponse
+}
 
 type Query {
-
     holdings(investorId: String!): [Holding]
-
     portfolioSummary(portfolioId: String!): PortfolioSummary
 }

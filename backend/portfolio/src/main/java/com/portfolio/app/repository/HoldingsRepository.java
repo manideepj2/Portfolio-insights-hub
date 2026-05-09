@@ -44,4 +44,35 @@ public class HoldingsRepository {
 
         return dynamoDbClient.scan(scanRequest);
     }
+
+    public ScanResponse scanAll() {
+
+        return dynamoDbClient.scan(
+                ScanRequest.builder()
+                        .tableName(TABLE_NAME)
+                        .build()
+        );
+    }
+
+    public ScanResponse scanAllByInvestor(
+            String investorId) {
+
+        ScanRequest request =
+                ScanRequest.builder()
+                        .tableName(TABLE_NAME)
+                        .filterExpression(
+                                "investorId = :investorId"
+                        )
+                        .expressionAttributeValues(
+                                Map.of(
+                                        ":investorId",
+                                        AttributeValue.builder()
+                                                .s(investorId)
+                                                .build()
+                                )
+                        )
+                        .build();
+
+        return dynamoDbClient.scan(request);
+    }
 }

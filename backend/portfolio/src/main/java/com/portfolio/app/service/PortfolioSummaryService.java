@@ -55,8 +55,6 @@ public class PortfolioSummaryService {
             );
         }
 
-        Map<String, Double> allocationPercentages = new HashMap<>();
-
         List<AssetAllocation> allocations = new ArrayList<>();
 
         for (Map.Entry<String, Double> entry : assetTotals.entrySet()) {
