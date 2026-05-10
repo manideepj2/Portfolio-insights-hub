@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UploadUrlResponse } from '../../models/uploadurl-response.model';
 import { Holding } from '../../models/holding.model';
 import { PortfolioSummary } from '../../models/portfolio-summary.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { PortfolioSummary } from '../../models/portfolio-summary.model';
 export class PortfolioApiService {
   private http = inject(HttpClient);
 
-  private baseUrl = 'http://localhost:8080/api/v1';
+  private baseUrl = environment.apiBaseUrl;
 
   getHoldings(investorId: string): Observable<Holding[]> {
     return this.http.get<Holding[]>(`${this.baseUrl}/investor/${investorId}/holdings`);
@@ -31,5 +32,4 @@ export class PortfolioApiService {
   getPortfolioSummary(portfolioId: string): Observable<PortfolioSummary> {
     return this.http.get<PortfolioSummary>(`${this.baseUrl}/portfolio/${portfolioId}/summary`);
   }
-  
 }
