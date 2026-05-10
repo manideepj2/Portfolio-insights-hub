@@ -3,5 +3,5 @@ export const environment = {
 
   graphqlUrl: 'http://portfolio-alb-195586048.us-east-1.elb.amazonaws.com/graphql',
 
-  apiBaseUrl: 'http://portfolio-alb-195586048.us-east-1.elb.amazonaws.com/api',
+  apiBaseUrl: 'http://portfolio-alb-195586048.us-east-1.elb.amazonaws.com/api/v1',
 };
