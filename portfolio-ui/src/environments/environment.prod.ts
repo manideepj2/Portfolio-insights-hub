@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
 
-  graphqlUrl: 'http://portfolio-alb-195586048.us-east-1.elb.amazonaws.com/graphql',
+  graphqlUrl: 'https://portfolio-insights-hub.onrender.com/graphql',
 
-  apiBaseUrl: 'http://portfolio-alb-195586048.us-east-1.elb.amazonaws.com/api/v1',
+  apiBaseUrl: 'https://portfolio-insights-hub.onrender.com/api/v1',
 };
